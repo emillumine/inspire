@@ -1,0 +1,2 @@
+class WatchingRecommendation < Recommendation
+end

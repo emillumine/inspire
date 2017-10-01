@@ -1,0 +1,2 @@
+module ReadingRecommendationsHelper
+end
