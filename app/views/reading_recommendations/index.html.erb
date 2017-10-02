@@ -1,2 +1,8 @@
-<h1>ReadingRecommendations#index</h1>
-<p>Find me in app/views/reading_recommendations/index.html.erb</p>
+<h1>Ce que je lis</h1>
+
+<% @reading_recommendations.each do |reco| %>
+	<article>
+		<h2><%= reco.title %></h2>
+		<%= reco.content %>
+	</article>
+<% end %>
