@@ -10,11 +10,23 @@
 
   <body>
   	<header>
-  		<a href="/">Inspire</a>
+  		<a href="/">Inspire</a> |
+  		<% if current_user %>
+  			<%= form_tag "/users/sign_out", method: :delete, class: 'form-inline', style: 'display:inline !important;' do %>
+  				<input type="submit" value="Se déconnecter" />
+  			<% end %>
+  		<% else %>
+  			<a href="/users/sign_in">Connexion</a> |
+  			<a href="/users/sign_up">Inscription</a>
+  		<% end %>
   	</header>
 
-  	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  	<% if flash[:notice] %>
+  		<p class="notice"><%= notice %></p>
+  	<% end %>
+  	<% if flash[:alert] %>
+    	<p class="alert"><%= alert %></p>
+    <% end %>
 
 
     <%= yield %>
