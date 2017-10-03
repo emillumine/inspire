@@ -1,4 +1,4 @@
-class WatchingRecommendationsController < ApplicationController
+class WatchingRecommendationsController < RecommendationsController
   def index
   end
 end

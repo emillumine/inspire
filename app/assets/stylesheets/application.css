@@ -27,3 +27,20 @@
 	color: white;
 	font-weight: bold;
 }
+
+section {
+	border-style: solid;
+}
+
+article {
+	border-style: solid;
+	border-color: red;
+}
+
+article header {
+	border-style: dotted;
+}
+
+article footer {
+	border-style: dotted;
+}
