@@ -16,7 +16,7 @@ class RecommendationsController < ApplicationController
 
   def create
   	@recommendation = Recommendation.new title: params[:title], content: params[:content], user_id: current_user.id
-  	yield @recommendation if block_given?
+  	yield(@recommendation) if block_given?
   	if @recommendation.save
   		flash[:notice] = "Votre recommandation a bien été créée."
   		redirect_to "/"

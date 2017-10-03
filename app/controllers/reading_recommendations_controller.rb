@@ -8,8 +8,8 @@ class ReadingRecommendationsController < RecommendationsController
   end
 
   def create
-  	super do |recommendation|
-  		recommendation.type = "ReadingRecommendation"
+  	super do |reco|
+  		reco.type = "ReadingRecommendation"
   	end
   end
 end
