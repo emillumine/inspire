@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171003043611) do
+ActiveRecord::Schema.define(version: 20171004031614) do
 
   create_table "recommendations", force: :cascade do |t|
     t.string "type"
     t.string "title"
     t.text "content"
     t.integer "user_id"
+    t.string "status"
+    t.datetime "published_at"
     t.index ["user_id"], name: "index_recommendations_on_user_id"
   end
 

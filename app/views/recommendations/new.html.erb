@@ -1,7 +1,7 @@
 <h2>Nouvelle recommandation</h2>
 
-<%= form_tag "/recommendations/new", method: :post do %>
-  <p>Titre : <input type="text" name="title" /> <i><%= @recommendation.errors[:title].first %></i></p>
-  <p>Contenu : <textarea name="content"></textarea> <i><%= @recommendation.errors[:content].first %></i></p>
+<%= form_for @recommendation do %>
+  <p>Titre : <input type="text" name="recommendation[title]" /> <i><%= @recommendation.errors[:title].first %></i></p>
+  <p>Contenu : <textarea name="recommendation[content]"></textarea> <i><%= @recommendation.errors[:content].first %></i></p>
   <input type="submit" value="Enregistrer la recommandation" />
 <% end %>
