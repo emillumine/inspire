@@ -29,7 +29,9 @@
 }
 
 section {
-	border-style: solid;
+	border-style: solid;	
+	margin-bottom: 0.3cm;
+
 }
 
 article {
