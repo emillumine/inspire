@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   #get 'recommendations' => 'recommendations#index'
   #get 'recommendations/new' => 'recommendations#new'
   #post 'recommendations/new' => 'recommendations#create'
-  resources :recommendations, only: [:index, :new, :create, :show]
+  resources :recommendations, only: [:index, :new, :create, :show, :update]
 
   #get 'reading_recommendations' => 'reading_recommendations#index'
   #get 'reading_recommendations/new' => 'reading_recommendations#new'
