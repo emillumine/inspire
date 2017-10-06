@@ -2,12 +2,11 @@ class RecommendationsController < ApplicationController
   
   before_action :set_recommendation, only: [:show, :update]
 
-
   def home
   end
 
   def index
-  	@recommendations = Recommendation.all
+  	@recommendations = Recommendation.where(published: true).order("published_at DESC")
   end
 
   def new
@@ -19,14 +18,20 @@ class RecommendationsController < ApplicationController
   end
 
   def create
-  	#@recommendation = Recommendation.new title: params[:title], content: params[:content], user_id: current_user.id
   	@recommendation = Recommendation.new recommendation_params
     @recommendation.user_id = current_user.id
     @recommendation.published = false
     yield(@recommendation) if block_given?
   	if @recommendation.save
   		flash[:notice] = "Votre recommandation a bien été enregistrée comme brouillon."
-  		redirect_to "/recommendations/#{@recommendation.id}"
+  		if params[:published]
+        if @recommendation.update published: true, published_at: Time.zone.now
+          flash[:notice] = "Votre recommandation a été publiée."
+        else
+          flash[:alert] = "Votre recommandation n'a pas été publiée."
+        end
+      end
+      redirect_to "/recommendations/#{@recommendation.id}"
   	else
   		flash[:alert] = "L'enregistrement de la recommandation a échoué."
   		render 'new'
@@ -54,6 +59,14 @@ class RecommendationsController < ApplicationController
     else
       flash[:alert] = "L'enregistrement de la recommandation a échoué"
       render 'show'
+    end
+  end
+
+  def drafts_index
+    @recommendations = Recommendation.where(user_id: current_user.id, published: false)
+    unless current_user
+      flash[:alert] = "Accès interdit. Vous devez être connecté pour voir vos brouillons."
+      return redirect_to request.referrer || root_path
     end
   end
 

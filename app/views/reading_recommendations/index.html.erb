@@ -1,8 +1,7 @@
 <h1>Ce que je lis</h1>
 
-<% @reading_recommendations.each do |reco| %>
-	<article>
-		<h2><%= reco.title %></h2>
-		<%= reco.content %>
-	</article>
+<% if current_user %>
+<p><a href="/reading_recommendations/new">+ Recommander ce que je lis</a></p>
 <% end %>
+
+<%= render "shared/index" %>

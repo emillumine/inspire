@@ -1,4 +1,6 @@
 <% if @recommendation.published? %>
+<!-- Si la recommandation est publiée, on affiche la recommandation -->
+
 	<section>
 		<article>
 			<header>
@@ -12,12 +14,25 @@
 		<aside>
 		</aside>
 	</section>
+
 <% elsif draft_accessible?(@recommendation) %>
 <!-- draft_accessible? est un helper défini dans recommendations_helper.rb -->
-	<%= form_for @recommendation do %>
-  		<p>Titre : <input type="text" name="recommendation[title]" value="<%= @recommendation.title %>" /> <i><%= @recommendation.errors[:title].first %></i></p>
-  		<p>Contenu : <textarea name="recommendation[content]"><%= @recommendation.content %></textarea> <i><%= @recommendation.errors[:content].first %></i></p>
-  		<input type="submit" value="Enregistrer la recommandation" />
-  		<input type="submit" name="published" value="Publier" />
+<!-- Sinon, si le brouillon est accessible, on affiche le formulaire de modification du brouillon -->
+
+	<% if !@recommendation.type %>
+		<%= form_for @recommendation do %>
+			<p>Titre : <input type="text" name="recommendation[title]" value="<%= @recommendation.title %>" /> <i><%= @recommendation.errors[:title].first %></i></p>
+	  	<p>Contenu : <textarea name="recommendation[content]"><%= @recommendation.content %></textarea> <i><%= @recommendation.errors[:content].first %></i></p>
+	  	<input type="submit" value="Enregistrer la recommandation" />
+	  	<input type="submit" name="published" value="Publier" />
+	  <% end %>
+	<% else %>
+		<%= form_tag "/#{@recommendation.type.underscore}s/#{@recommendation.id}", method: :patch do %>
+	  	<p>Titre : <input type="text" name="recommendation[title]" value="<%= @recommendation.title %>" /> <i><%= @recommendation.errors[:title].first %></i></p>
+	  	<p>Contenu : <textarea name="recommendation[content]"><%= @recommendation.content %></textarea> <i><%= @recommendation.errors[:content].first %></i></p>
+	  	<input type="submit" value="Enregistrer la recommandation" />
+	  	<input type="submit" name="published" value="Publier" />
+		<% end %>
 	<% end %>
+
 <% end %>

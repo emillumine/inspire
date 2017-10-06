@@ -1,10 +1,6 @@
 class ReadingRecommendationsController < RecommendationsController
   def index
-  	@reading_recommendations = ReadingRecommendation.all
-  end
-
-  def new
-  	super
+  	@recommendations = ReadingRecommendation.where(published: true).order("published_at DESC")
   end
 
   def create

@@ -12,6 +12,7 @@
   	<header>
   		<a href="/">Inspire</a> |
   		<% if current_user %>
+        <a href="/users/drafts">Mes brouillons</a> |
   			<%= form_tag "/users/sign_out", method: :delete, class: 'form-inline', style: 'display:inline !important;' do %>
   				<input type="submit" value="Se déconnecter" />
   			<% end %>

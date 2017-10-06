@@ -1,15 +1,3 @@
-<% @recommendations.each do |reco| %>
-	<section class=reco.type>
-		<article>
-			<header>
-				<%= reco.user.username %>
-				<h1><%= reco.title %></h1>
-			</header>
-			<%= reco.content %>
-			<footer>
-			</footer>
-		</article>
-		<aside>
-		</aside>
-	</section>
-<% end %>
+<h1>Tout ce qui m'inspire</h1>
+
+<%= render "shared/index" %>
