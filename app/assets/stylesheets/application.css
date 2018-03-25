@@ -14,6 +14,25 @@
  *= require_self
  */
 
+:root {
+	--main-reading-reco-color: #16a085;
+	--main-watching-reco-color: #f1c40f;
+	--main-light-background-color: #bdc3c7;
+	--main-dark-background-color: #7f8c8d;
+}
+
+body {
+	background-color: var(--main-dark-background-color);
+}
+
+.ReadingRecommendation {
+	--main-type-reco-color: #16a085;
+}
+
+.WatchingRecommendation {
+	--main-type-reco-color: #f1c40f;
+}
+
 .notice {
 	padding: 0.3cm;
 	background-color: #2ecc71;
@@ -28,21 +47,28 @@
 	font-weight: bold;
 }
 
-section {
-	border-style: solid;	
-	margin-bottom: 0.3cm;
-
-}
-
 article {
 	border-style: solid;
-	border-color: red;
+	border-color: var(--main-type-reco-color, black);	
+	border-radius: 15px;
+	overflow: hidden; /* permet de cacher ce qui dépasse du bord, et donc à border-radius de fonctionner correctement (d'un point de vue esthétique) avec border-color */
+	margin-bottom: 0.3cm; /* ajoute un espace externe à la bordure en dessous de chaque article */
+	background-color: white;
+	color: var(--main-type-reco-color, black)
 }
 
+
 article header {
-	border-style: dotted;
+	background-color: var(--main-type-reco-color, var(--main-dark-background-color));
+	color: white;
+	padding: 6px;
+	margin-bottom: 10px;
 }
 
 article footer {
-	border-style: dotted;
+	background-color: var(--main-light-background-color);
+	color: white;
+	padding: 6px;
+	margin-top: 10px;
 }
+

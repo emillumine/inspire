@@ -1,5 +1,5 @@
 <% @recommendations.each do |reco| %>
-	<section class=reco.type>
+	<section class=<%= reco.type %>>
 		<article>
 			<header>
 				<%= reco.user.username %>
@@ -7,7 +7,7 @@
 			</header>
 			<%= reco.content %>
 			<footer>
-				<%= reco.published_at %>
+				Publié le : <%= reco.published_at %>, dans : <%= reco.type %>
 			</footer>
 		</article>
 		<aside>
