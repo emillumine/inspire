@@ -21,10 +21,6 @@
 	--main-dark-background-color: #7f8c8d;
 }
 
-body {
-	background-color: var(--main-dark-background-color);
-}
-
 .ReadingRecommendation {
 	--main-type-reco-color: #16a085;
 }
@@ -49,7 +45,7 @@ body {
 
 article {
 	border-style: solid;
-	border-color: var(--main-type-reco-color, black);	
+	border-color: var(--main-type-reco-color, var(--main-dark-background-color));	
 	border-radius: 15px;
 	overflow: hidden; /* permet de cacher ce qui dépasse du bord, et donc à border-radius de fonctionner correctement (d'un point de vue esthétique) avec border-color */
 	margin-bottom: 0.3cm; /* ajoute un espace externe à la bordure en dessous de chaque article */
