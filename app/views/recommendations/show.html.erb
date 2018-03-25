@@ -1,7 +1,7 @@
 <% if @recommendation.published? %>
 <!-- Si la recommandation est publiée, on affiche la recommandation -->
 
-	<section>
+	<section class=<%= @recommendation.type %>>
 		<article>
 			<header>
 				<%= @recommendation.user.username %>
@@ -9,6 +9,7 @@
 			</header>
 			<%= @recommendation.content %>
 			<footer>
+				Publié le : <%= @recommendation.published_at %>, dans : <%= @recommendation.type %>
 			</footer>
 		</article>
 		<aside>
