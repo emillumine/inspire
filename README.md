@@ -19,7 +19,7 @@ Inspire permet de publier et archiver des recommandations (au sens de critiques 
 - (?) A quoi je joue (jeux vidéos, jeux de société)
 - Inclassables // OtherRecommendation
 
-Chaque catégorie est une classe héritant de la classe mère Recommendation > Single Table Inheritance (http://guides.rubyonrails.org/association_basics.html)
+Chaque catégorie est une classe héritant de la classe mère Recommendation > [Single Table Inheritance](http://guides.rubyonrails.org/association_basics.html)
 
 ## ACTIONS
 
@@ -37,7 +37,7 @@ Avancé :
 - s'abonner au flux d'un utilisateur
 - voir son flux d'abonnements (où n'apparaissent que les recommandations postées par les users auxquels on est abonné)(+ activité ? du style "machin a approuvé telle recommandation")
 - définir/modifier un profil utilisateur (avatar, mini-bio)
-- afficher un profil utilisateur (avec la liste de ses recommandations et de ses plus-one)
+- afficher un profil utilisateur (avec la liste de ses recommandations et de ses thumbs-ups)
 
 Encore plus avancé :
 - s'abonner uniquement à certaines catégories d'un utilisateur (par exemple si je veux voir les recettes de cet utilisateur, mais pas ses lectures, j'ai la possibilité de m'abonner uniquement à sa catégorie cuisine)
@@ -55,7 +55,7 @@ Encore plus avancé :
 - auteur // user_id :heavy_check_mark:
 - date publication // published_at :heavy_check_mark:
 - état publié // published :heavy_check_mark:
-- nb de plus-one et liste
+- nb de thumbs-ups et liste
 - (?) Adresse/url (où trouver l'objet de la recommandation. Physique ou url)
 - (?) Public cible (à qui je recommande)
 - (?) Sous catégorie / tags
