@@ -31,7 +31,7 @@ Basique :
 - (?) éditer une recommandation (est-ce que je veux vraiment qu'on puisse éditer une fois publiée ?)
 
 Avancé :
-- "approuver" une recommandation d'un tiers (plus-one) (= système de like)
+- "approuver" une recommandation d'un tiers (thumbs-up) (= système de like)
 - voir combien de fois une recommandation a été approuvée et par qui
 - voir toutes les recommandations d'un utilisateur (affichage par user)
 - s'abonner au flux d'un utilisateur
