@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171005052040) do
+ActiveRecord::Schema.define(version: 20180704194641) do
 
   create_table "recommendations", force: :cascade do |t|
     t.string "type"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20171005052040) do
     t.datetime "published_at"
     t.boolean "published"
     t.index ["user_id"], name: "index_recommendations_on_user_id"
+  end
+
+  create_table "thumbs_ups", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "recommendation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recommendation_id"], name: "index_thumbs_ups_on_recommendation_id"
+    t.index ["user_id"], name: "index_thumbs_ups_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

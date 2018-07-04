@@ -1,5 +1,6 @@
 class Recommendation < ApplicationRecord
 	belongs_to :user
+	has_many :thumbs_ups
 
 	validates :title, presence: {
 		message: "Erreur ! Le titre doit être renseigné."
